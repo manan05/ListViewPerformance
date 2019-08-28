@@ -47,21 +47,35 @@ public class MainActivity extends AppCompatActivity {
             //here we do not create another itemView to improve performance of this
             //if convertView is null then we make new views
             // else we reuse them !
-            if(convertView == null){
+            CourseViewHolder holder;
+            if (convertView == null) {
                 convertView = getLayoutInflater().inflate(
                         R.layout.list_item_course,
-                        parent,false
+                        parent, false
                 );
+                holder = new CourseViewHolder(convertView);
+                convertView.setTag(holder);
+
+            } else {
+                holder = (CourseViewHolder) convertView.getTag();
             }
-            TextView tvCourseName = convertView.findViewById(R.id.tvCourseName);
-            TextView tvTeacherName = convertView.findViewById(R.id.tvTeacherName);
-            TextView tvLectures = convertView.findViewById(R.id.tvLectures);
+
 
             Course course = getItem(position);
-            tvCourseName.setText(course.getName());
-            tvTeacherName.setText(course.getTeacherName());
-            tvLectures.setText(String.valueOf(course.getLeactures())); // Because Lectures is an int value
+            holder.tvCourseName.setText(course.getName());
+            holder.tvTeacherName.setText(course.getTeacherName());
+            holder.tvLectures.setText(String.valueOf(course.getLeactures())); // Because Lectures is an int value
             return convertView;
+        }
+
+        class CourseViewHolder {
+            TextView tvCourseName, tvTeacherName, tvLectures;
+
+            CourseViewHolder(View convertView) {
+                tvCourseName = convertView.findViewById(R.id.tvCourseName);
+                tvTeacherName = convertView.findViewById(R.id.tvTeacherName);
+                tvLectures = convertView.findViewById(R.id.tvLectures);
+            }
         }
     }
 }
