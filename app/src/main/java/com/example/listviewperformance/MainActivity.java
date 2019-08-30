@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
             Course course = getItem(position);
             holder.tvCourseName.setText(course.getName());
             holder.tvTeacherName.setText(course.getTeacherName());
-            holder.tvLectures.setText(String.valueOf(course.getLeactures())); // Because Lectures is an int value
+            holder.tvLectures.setText(String.valueOf(course.getLectures())); // Because Lectures is an int value
             return convertView;
         }
 

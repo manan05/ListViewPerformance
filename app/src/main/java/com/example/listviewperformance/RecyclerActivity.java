@@ -1,6 +1,7 @@
 package com.example.listviewperformance;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,7 +21,7 @@ public class RecyclerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recycler);
 
         rvCourses = findViewById(R.id.rvCourses);
-        rvCourses.setLayoutManager(new LinearLayoutManager(this));
+        rvCourses.setLayoutManager(new GridLayoutManager(this,2));
         //Always Layout BEFORE Adapter
         //Recycler view wont work because
         //Adapter will have the data but will not know where the data will go

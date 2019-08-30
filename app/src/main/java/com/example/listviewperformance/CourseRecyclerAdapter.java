@@ -19,25 +19,25 @@ public class CourseRecyclerAdapter extends RecyclerView.Adapter<CourseRecyclerAd
         this.courses = courses;
     }
 
-    @NonNull
+
     @Override
-    public CourseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CourseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater li = (LayoutInflater) parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View itemView = li.inflate(R.layout.list_item_course,parent,false);
         return new CourseViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CourseViewHolder holder, int position) {
+    public void onBindViewHolder(CourseViewHolder holder, int position) {
         Course course = courses.get(position);
-        holder.tvLectures.setText(String.valueOf(course.getLeactures()));
+        holder.tvLectures.setText(String.valueOf(course.getLectures()));
         holder.tvCourseName.setText(course.getName());
         holder.tvTeacherName.setText(course.getTeacherName());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return courses.size();
     }
 
     class CourseViewHolder extends RecyclerView.ViewHolder {

@@ -6,12 +6,12 @@ import java.util.Random;
 public class Course {
     String name;
     String teacherName;
-    int leactures;
+    int lectures;
 
-    public Course(String name, String teacherName, int leactures) {
+    public Course(String name, String teacherName, int lectures) {
         this.name = name;
         this.teacherName = teacherName;
-        this.leactures = leactures;
+        this.lectures = lectures;
     }
 
     public String getName() {
@@ -22,8 +22,8 @@ public class Course {
         return teacherName;
     }
 
-    public int getLeactures() {
-        return leactures;
+    public int getLectures() {
+        return lectures;
     }
 
     public static final String[] teachers = {
